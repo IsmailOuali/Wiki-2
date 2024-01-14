@@ -6,6 +6,7 @@ require 'model/wiki.php';
 require 'model/tag.php';
 
 
+
 $obj = array();
 $obj = tag::showtag();
 
@@ -18,7 +19,7 @@ $objwiki = wiki::showwiki();
 $countWiki = wiki::CountWiki();
 
 
-
+$id_user = $_SESSION['id_user'];
 
 ?>
 

@@ -8,9 +8,7 @@ if(@$_POST['login']){
 }
 
 $log = new user();
-
 if(!$log->login($email, $password)){
-    $_SESSION['id_user'] = $log->login($email, $password);
     header('Location: ../login.php');
 }
-
+$_SESSION['id_user'] = $log->login($email, $password);

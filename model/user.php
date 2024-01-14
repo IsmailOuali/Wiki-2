@@ -1,6 +1,6 @@
 <?php
 
-    // require_once '../config.php';
+    require_once '../config.php';
 
 class user{
     private $id_user;
@@ -42,13 +42,15 @@ class user{
         }else{
             $result = $sql->fetch(PDO::FETCH_ASSOC);
             $this->id_role = $result['id_role'];
+            $this->id_user = $result['id_user'];
             if($result['id_role'] == 1){
                 header('Location: ../index.php');
             }
             else if ($result['id_role'] == 2){
                 header ('Location: ../dashboard-admin.php');
-            } 
-            return $result['id_user'];           
+            }
+            return $this->id_user;           
         }
+
     }
 }
