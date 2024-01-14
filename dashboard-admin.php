@@ -90,7 +90,7 @@ $id_user = $_SESSION['id_user'];
    <main class="mx-60 max-w-screen-2xl p-4 md:p-6 2xl:p-10">
 
    <!-- Tags part -->
-
+ 
       <section id="tags-page">
          <div class=" rounded-sm">
             <form class="w-1/4 max-w-sm" action="controller/add-tag.php" method="post">

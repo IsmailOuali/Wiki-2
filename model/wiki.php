@@ -14,12 +14,12 @@ class wiki{
     private $date;
     private user $user;
 
-    public function __construct($id_wiki,$name_wiki, $description_wiki, $category){
+    public function __construct($id_wiki,$name_wiki, $description_wiki, $category, $user){
         $this->id_wiki= $id_wiki;
         $this->name_wiki= $name_wiki;
         $this->description_wiki= $description_wiki;
         $this->category= $category;
-
+        $this->user = new user();
     }
     
     public function __get($prop){
@@ -43,6 +43,19 @@ class wiki{
         $sql->execute();
     }
 
+    public static function showwikiuser($id){
+        $sql = DBconnection::connection()->query("SELECT * FROM wikis where status = 1");
+    
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+            $wikis = array();
+            
+            foreach ($result as $row){
+                $wik = new wiki($row['id_wiki'], $row['name_wiki'], $row['description_wiki'], $row['category'], $row['id_user']);
+                array_push($wikis, $wik);
+    
+            }
+            return  $wikis;
+    }
     public static function showwiki(){
         $sql = DBconnection::connection()->query("SELECT * FROM wikis where status = 1");
     
@@ -97,7 +110,7 @@ class wiki{
         $wikis = array();
         
         foreach ($result as $row){
-            $wik = new wiki($row['id_wiki'], $row['name_wiki'], $row['description_wiki'], $row['category']);
+            $wik = new wiki($row['id_wiki'], $row['name_wiki'], $row['description_wiki'], $row['category'], $row['id_user']);
             array_push($wikis, $wik);
 
         }
