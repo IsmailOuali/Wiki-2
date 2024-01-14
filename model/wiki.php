@@ -122,10 +122,10 @@ class wiki{
     }
 
     public static function CountWiki(){
-        $req = DBconnection::connection()->query("SELECT COUNT(*) as totalWiki FROM wikis");
+        $req = DBconnection::connection()->query("SELECT COUNT(*) FROM wikis");
         $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
-        return $result['totalWiki'];
+        return $result;
 
     }
 }
