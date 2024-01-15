@@ -7,7 +7,9 @@ require 'model/categorie.php';
 require 'model/wiki.php';
 // require 'model/user.php';
 
-if($_SESSION['id'])
+if(!$_SESSION['id_user']){
+    header('Location: login.php');
+}
 
 $obj = array();
 $obj = tag::showtag();
