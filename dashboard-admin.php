@@ -22,6 +22,10 @@ $countArchivedWiki = wiki::CountArchivedWiki();
 
 
 $id_user = $_SESSION['id_user'];
+$usr  = user::checkadmin($id_user);
+if(!$usr){
+   header('Location: login.php');
+}
 
 ?>
 

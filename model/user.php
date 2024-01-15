@@ -67,4 +67,13 @@ class user{
         unset($_SESSION['id_user']);
         return true;
     }
+
+    public static function checkadmin($id_user){
+        $sql = DBconnection::connection()->query("SELECT * from users WHERE id_role = 2");
+
+        if($sql->rowCount() == 0){
+            return false;
+        }
+        return true;
+    }
 }
