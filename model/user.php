@@ -61,4 +61,10 @@ class user{
         return $result;
 
     }
+
+    public static function logout() {
+        session_destroy();
+        unset($_SESSION['id_user']);
+        return true;
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 session_start();
+require '../config.php';
 require_once '../model/user.php';
 
 if(@$_POST['login']){

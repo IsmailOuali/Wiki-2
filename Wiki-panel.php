@@ -7,6 +7,8 @@ require 'model/categorie.php';
 require 'model/wiki.php';
 // require 'model/user.php';
 
+if($_SESSION['id'])
+
 $obj = array();
 $obj = tag::showtag();
 
