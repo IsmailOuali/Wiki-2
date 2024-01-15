@@ -79,7 +79,7 @@ class wiki{
         $wikis = array();
         
         foreach ($result as $row){
-            $wik = new wiki($row['id_wiki'], $row['name_wiki'], $row['description_wiki'], $row['category']);
+            $wik = new wiki($row['id_wiki'], $row['name_wiki'], $row['description_wiki'], $row['category'], $row['id_user']);
             array_push($wikis, $wik);
 
         }
@@ -136,4 +136,19 @@ class wiki{
         return $result;
 
     }
+
+    public static function searchwiki($input){
+        $sql = DBconnection::connection()->query("SELECT * FROM wikis WHERE name_wiki like '%$input%'");
+
+        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+        $wikis = array();
+        
+        foreach ($result as $row){
+            $wik = new wiki($row['id_wiki'], $row['name_wiki'], $row['description_wiki'], $row['category'], $row['id_user']);
+            array_push($wikis, $wik);
+
+        }
+        return  $wikis;
+    }
+
 }
