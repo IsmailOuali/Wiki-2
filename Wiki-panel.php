@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'config.php';
+// require 'config.php';
 include 'model/tag.php';
 require 'model/categorie.php';
 require 'model/wiki.php';
