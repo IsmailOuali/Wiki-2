@@ -3,7 +3,7 @@
 require 'config.php';
 require 'model/wiki.php';
 
-$id = isset($_GET['id']) ? $_GET['id'] : null;
+$id = $_GET['id'];
 $obj = wiki::showwikiid($id);
 
 ?>
@@ -46,6 +46,7 @@ $obj = wiki::showwikiid($id);
         </div>
     </nav>
     <section>
+        for
         <div class="bg-gray-100 dark:bg-gray-800 py-8">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row -mx-4">
@@ -55,7 +56,7 @@ $obj = wiki::showwikiid($id);
                         </div>
                     </div>
                     <div class="md:flex-1 px-4">
-                        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Wiki Name</h2>
+                        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2"><?php echo $obj['name_wiki'] ?></h2>
                         <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
                             ante justo. Integer euismod libero id mauris malesuada tincidunt.

@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../config.php';
+    // require_once '../config.php';
 
 class user{
     private $id_user;

@@ -2,6 +2,7 @@
 session_start();
 require 'config.php';
 require 'model/categorie.php';
+require 'model/user.php';
 require 'model/wiki.php';
 require 'model/tag.php';
 
