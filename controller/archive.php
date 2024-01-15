@@ -1,6 +1,5 @@
 <?php
-
-include '../config.php';
+require '../config.php';
 include '../model/wiki.php';
 
 $r = $_GET['id'];

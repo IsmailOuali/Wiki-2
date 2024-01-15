@@ -17,6 +17,8 @@ $objwiki = array();
 $objwiki = wiki::showwiki();
 
 $countWiki = wiki::CountWiki();
+$countuser = user::CountUsers();
+$countArchivedWiki = wiki::CountArchivedWiki();
 
 
 $id_user = $_SESSION['id_user'];
@@ -89,7 +91,7 @@ $id_user = $_SESSION['id_user'];
    </aside>
    <main class="mx-60 max-w-screen-2xl p-4 md:p-6 2xl:p-10">
 
-   <section class="w-full flex">
+   <section id="dashboard-page" class="w-full flex">
 
          <!-- Tile 1 -->
          <div class="flex items-center p-4 rounded">
@@ -105,7 +107,7 @@ $id_user = $_SESSION['id_user'];
                   <div class="flex items-center justify-between">
                      <span class="text-gray-500">Number of wikis</span>
                   </div>
-                  <span class="text-xl font-bold">$8,430</span>
+                  <span class="text-xl font-bold"><?php echo $countWiki[0] ?></span>
                </div>
          </div>
 
@@ -123,7 +125,7 @@ $id_user = $_SESSION['id_user'];
                   <div class="flex items-center justify-between">
                      <span class="text-gray-500">Number of autors</span>
                   </div>
-                  <span class="text-xl font-bold">211</span>
+                  <span class="text-xl font-bold"><?php echo $countuser[0] ?></span>
                </div>
          </div>
 
@@ -141,7 +143,7 @@ $id_user = $_SESSION['id_user'];
                   <div class="flex items-center justify-between">
                      <span class="text-gray-500">Archived wikis</span>
                   </div>
-                  <span class="text-xl font-bold">140</span>
+                  <span class="text-xl font-bold"><?php echo $countArchivedWiki[0] ?></span>
                </div>
          </div>
 
@@ -288,12 +290,6 @@ $id_user = $_SESSION['id_user'];
                </table>
             </div>
             
-         </div>
-      </section>
-      <section>
-         <div>
-            <h2>Wikis number</h2>
-            <p><?php echo $countWiki[0] ?></p>
          </div>
       </section>
    </main>

@@ -53,4 +53,12 @@ class user{
         }
 
     }
+
+    public static function CountUsers(){
+        $req = DBconnection::connection()->query("SELECT COUNT(*) FROM users where id_role = 1");
+        $result = $req->fetch(PDO::FETCH_NUM);
+
+        return $result;
+
+    }
 }

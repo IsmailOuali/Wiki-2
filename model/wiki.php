@@ -1,6 +1,6 @@
 <?php
     // require '../config.php';
-    require 'model/user.php';
+    require __DIR__.'/user.php';
 
 
 class wiki{
@@ -123,6 +123,14 @@ class wiki{
 
     public static function CountWiki(){
         $req = DBconnection::connection()->query("SELECT COUNT(*) FROM wikis");
+        $result = $req->fetch(PDO::FETCH_NUM);
+
+        return $result;
+
+    }
+
+    public static function CountArchivedWiki(){
+        $req = DBconnection::connection()->query("SELECT COUNT(*) FROM wikis WHERE status = 0");
         $result = $req->fetch(PDO::FETCH_NUM);
 
         return $result;
