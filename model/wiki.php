@@ -123,7 +123,7 @@ class wiki{
 
     public static function CountWiki(){
         $req = DBconnection::connection()->query("SELECT COUNT(*) FROM wikis");
-        $result = $req->fetchAll(PDO::FETCH_ASSOC);
+        $result = $req->fetch(PDO::FETCH_NUM);
 
         return $result;
 
