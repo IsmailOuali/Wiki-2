@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// require 'config.php';
+require 'config.php';
 include 'model/tag.php';
 require 'model/categorie.php';
 require 'model/wiki.php';
-require 'model/user.php';
+// require 'model/user.php';
 
 $obj = array();
 $obj = tag::showtag();
@@ -15,7 +15,7 @@ $objcat = categorie::showcategory();
 
 $id_user = $_SESSION['id_user'];
 $objwiki = array();
-$objwiki = wiki::showwikiuser($id_user);
+$objwiki = wiki::showwiki();
 
 ?>
 <!DOCTYPE html>
