@@ -169,14 +169,7 @@ class wiki{
     public static function showwikitag($id_wiki){
         $sql = DBconnection::connection()->query("SELECT tags FROM wikis where id_wiki = $id_wiki");
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-        // $tags = array();
 
-        // foreach ($result as $row){
-        //     $tag = new wiki($row['id_wiki'], $row['name_wiki'], $row['description_wiki'], $row['category'], $row['id_user']);
-        //     array_push($tags, $tag);
-
-        // }
         return  $result;
-
     }
 }
