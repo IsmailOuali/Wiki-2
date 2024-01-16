@@ -19,7 +19,7 @@ $objcat = categorie::showcategory();
 
 $id_user = $_SESSION['id_user'];
 $objwiki = array();
-$objwiki = wiki::showwiki();
+$objwiki = wiki::showwikiuser($id_user);
 
 ?>
 <!DOCTYPE html>
@@ -126,7 +126,9 @@ $objwiki = wiki::showwiki();
                         <textarea id="description" name="description-wiki" class=" bg-gray-100 py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" rows="3"></textarea>
                     </div>
                 </div>
-                <input value="Add Wiki" name="submit-wiki" type="submit" class="w-1/3 h-1/3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-blue-600 text-blue-600 hover:border-blue-500 hover:text-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                <div class="h-3/5 w-full mt-4">
+                    <input value="Add Wiki" name="submit-wiki" type="submit" class="w-1/3 h-1/3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-blue-600 text-blue-600 hover:border-blue-500 hover:text-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                </div>
             </form>
         </div>
     </section>

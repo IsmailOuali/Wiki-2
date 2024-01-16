@@ -107,7 +107,7 @@ class wiki{
     }
 
     public static function showLastWikis(){
-        $req = DBconnection::connection()->query("SELECT * FROM wikis ORDER BY date DESC");
+        $req = DBconnection::connection()->query("SELECT * FROM wikis ORDER BY date DESC LIMIT 3");
 
         
         $result = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -152,7 +152,7 @@ class wiki{
     }
 
     public static function showwikiuser($id_user){
-        $sql = DBconnection::connection()->query("SELECT * FROM wikis where status = 1 AND id_user = :id_user");
+        $sql = DBconnection::connection()->query("SELECT * FROM wikis JOIN users where wikis.id_user = users.id_user AND users.id_user = $id_user");
     
             $result = $sql->fetchAll(PDO::FETCH_ASSOC);
             $wikis = array();
