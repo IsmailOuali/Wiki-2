@@ -3,6 +3,9 @@
 require 'config.php';
 require 'model/wiki.php';
 session_start();
+if(!$_SESSION['id_user']){
+    header('Location: register.php');
+}
 $id = $_GET['id'];
 $obj = wiki::showwikiid($id);
 $tags = wiki::showwikitag($id);
