@@ -112,7 +112,7 @@ $objwiki = wiki::showLastWikis();
 
             </div>
         </section>
-        <section class="m-5 flex flex-wrap">
+        <section class="m-5 flex flex-wrap" id="result">
             <?php
             if(@$_POST['submitSearch']){
 
@@ -127,7 +127,7 @@ $objwiki = wiki::showLastWikis();
 
 
             
-            <div class="m-10 bg-white rounded-lg overflow-hidden shadow-lg ring-4 ring-red-500 ring-opacity-40 max-w-sm">
+            <div  class="m-10 bg-white rounded-lg overflow-hidden shadow-lg ring-4 ring-red-500 ring-opacity-40 max-w-sm">
                 <div class="relative">
                     <img class="w-full" src="wiki-logo.jpg" alt="Product Image"> 
                 </div>
@@ -160,6 +160,33 @@ $objwiki = wiki::showLastWikis();
         </div>
     </footer>
   
-    
+    <script>
+                $(document).ready(function () {
+            $("#live_search").keyup(function () {
+                var query = $(this).val();
+                if (query != "") {
+                    $.ajax({
+                        url: 'searchwiki.php',
+                        method: 'POST',
+                        data: {
+                            query: query
+                        },
+                        success: function (data) {
+                            $('#result').html(data);
+                            $('#result').css('display', 'block');
+                            $("#default-search").focusout(function () {
+                                $('#result').css('display', 'none');
+                            });
+                            $("#default-search").focusin(function () {
+                                $('#result').css('display', 'block');
+                            });
+                        }
+                    });
+                } else {
+                    $('#result').css('display', 'none');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

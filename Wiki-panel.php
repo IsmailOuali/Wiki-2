@@ -134,7 +134,6 @@ $objwiki = wiki::showwikiuser($id_user);
     </section>
     <section class="p-3 sm:p-5 antialiased ">
         <div class="bg-gradient-to-r from-rose-100 to-teal-100 rounded-3xl mx-auto max-w-screen-xl px-4 lg:px-12">
-                <!-- Start coding here -->
                 <div class="bg-white relative shadow-md sm:rounded-lg overflow-hidden">
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
