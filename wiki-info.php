@@ -5,6 +5,10 @@ require 'model/wiki.php';
 
 $id = $_GET['id'];
 $obj = wiki::showwikiid($id);
+$tags = wiki::showwikitag($id);
+$tagss = $tags[0]['tags'];
+
+$tagsNames = explode(',', $tagss);
 
 ?>
 
@@ -68,7 +72,14 @@ $obj = wiki::showwikiid($id);
                             </div>
                             <div>
                                 <span class="font-bold text-gray-700 dark:text-gray-300">Tags:</span>
-                                <span class="text-gray-600 dark:text-gray-300"><?php $row->__get('tags') ?></span>
+                                <?php
+                                foreach ( $tagsNames as $tag) {
+                                
+                                    ?>
+                                <span class="text-gray-600 dark:text-gray-300"><?php echo  $tag?></span>
+                                    <?php
+                                    }
+                                    ?>
                             </div>
                         </div>
                         <div>
