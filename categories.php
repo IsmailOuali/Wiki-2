@@ -72,7 +72,7 @@ $obj = wiki::showwikicat($name_cat);
                     <div class="flex items-center justify-between">
                         <span class="font-bold text-lg"><?php echo $row->__get('category') ?></span>
                         <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-                            <a href="wiki.php?id=<?php echo $row->__get('id_wiki') ?>">Go to Wiki</a>
+                            <a href="wiki-info.php?id=<?php echo $row->__get('id_wiki') ?>">Go to Wiki</a>
                         </button>
                     </div>
                 </div>

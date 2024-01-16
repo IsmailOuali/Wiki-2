@@ -2,7 +2,7 @@
 
 require 'config.php';
 require 'model/wiki.php';
-
+session_start();
 $id = $_GET['id'];
 $obj = wiki::showwikiid($id);
 $tags = wiki::showwikitag($id);
@@ -22,9 +22,9 @@ $tagsNames = explode(',', $tags[0]['tags']);
     <title>Wiki</title>
 </head>
 <body>
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <nav class="bg-gradient-to-r from-gray-700 via-gray-900 to-black border-gray-200 dark:bg-gray-900"> 
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Wiki</span>
             </a>
@@ -35,15 +35,26 @@ $tagsNames = explode(',', $tags[0]['tags']);
                 </svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
-                        <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+                        <a href="index.php" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Acceuil</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+                        <?php
+                            if(@$_SESSION['id_user']){
+
+                                ?>
+                        <a href="Wiki-panel.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Gerer vos Wikis</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Categories</a>
+                        <a href="controller/log-out.php" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Se Deconnecter</a>
+                        <?php
+                            }else{
+                                ?>  
+                                <a href="controller/log-in.php" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Se Connecter</a>
+                            <?php    
+                            }
+                            ?>
                     </li>
                 </ul>
             </div>
@@ -60,7 +71,7 @@ $tagsNames = explode(',', $tags[0]['tags']);
                 <div class="flex flex-col md:flex-row -mx-4">
                     <div class="md:flex-1 px-4">
                         <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                            <img class="w-full h-full object-cover" src="upload/<?php echo $row->__get('image') ?>" alt="Product Image">
+                            <img class="w-full h-full object-cover" src="wiki-logo.jpg" alt="Product Image">
                         </div>
                     </div>
                     <div class="md:flex-1 px-4">
