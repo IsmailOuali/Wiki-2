@@ -37,6 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    $result = wiki::addwiki($name, $description, $category, $tags, $new_image, $date);
+    $result = wiki::addwiki($name, $description, $category, $tags, $new_image, $date, $id_user);
     header('Location: ../wiki-panel.php');
 }
