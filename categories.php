@@ -81,6 +81,18 @@ $obj = wiki::showwikicat($name_cat);
             }
             ?>
 </section>
+<footer class="w-full border-t bg-white pb-12">
+        <div class="w-full container mx-auto flex flex-col items-center">
+            <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
+                <a href="index.php" class="uppercase px-3"> Home</a>
+                <a href="wiki-panel.php" class="uppercase px-3">Gerer mes Wikis</a>
+                <a href="#" class="uppercase px-3">Terms & Conditions</a>
+            </div>
+            <div class="uppercase pb-6">&copy; Wiki.com</div>
+            <i>By Ouali Ismail</i>
+
+        </div>
+    </footer>
 
 </body>
 </html>
