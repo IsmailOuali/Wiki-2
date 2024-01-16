@@ -6,9 +6,9 @@ require 'model/wiki.php';
 $id = $_GET['id'];
 $obj = wiki::showwikiid($id);
 $tags = wiki::showwikitag($id);
-$tagss = $tags[0]['tags'];
+// $tagss = $tags[0]['tags'];
 
-$tagsNames = explode(',', $tagss);
+$tagsNames = explode(',', $tags[0]['tags']);
 
 ?>
 
