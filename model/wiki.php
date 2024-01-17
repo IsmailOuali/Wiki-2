@@ -139,7 +139,7 @@ class wiki{
     }
 
     public static function searchwiki($input){
-        $sql = DBconnection::connection()->query("SELECT * FROM wikis WHERE name_wiki OR category like '%$input%'");
+        $sql = DBconnection::connection()->query("SELECT * FROM wikis WHERE name_wiki OR category OR tags like '%$input%'");
 
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
         $wikis = array();
