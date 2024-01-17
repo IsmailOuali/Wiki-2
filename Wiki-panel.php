@@ -109,7 +109,7 @@ $objwiki = wiki::showwikiuser($id_user);
                         <?php
                             }
                         ?>
-                    <div>
+                    <div class="mt-2">
                         <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
                         <select name="category" id="category" class="py-3 px-4 pe-9 block w-full bg-gray-100 border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-700 dark:border-transparent dark:text-gray-400 dark:focus:ring-gray-600">
                             <?php
@@ -157,7 +157,7 @@ $objwiki = wiki::showwikiuser($id_user);
                                     <td class="px-4 py-3 flex justify-end">
                                         <a class="text-black" href="controller/deletewiki.php?id=<?php echo $row->__get("id_wiki") ?>">Delete </a>
                                         ||
-                                        <a class="text-black" href="">Modify</a>
+                                        <a class="text-black" href="wiki-modify.php?id=<?php echo $row->__get("id_wiki") ?>">Modify</a>
                                     </td>
                                 </tr>
                             <?php

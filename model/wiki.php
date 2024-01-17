@@ -139,7 +139,7 @@ class wiki{
     }
 
     public static function searchwiki($input){
-        $sql = DBconnection::connection()->query("SELECT * FROM wikis WHERE name_wiki like '%$input%'");
+        $sql = DBconnection::connection()->query("SELECT * FROM wikis WHERE name_wiki OR category like '%$input%'");
 
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
         $wikis = array();
@@ -171,5 +171,16 @@ class wiki{
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return  $result;
+    }
+
+    public static function modifywiki($id_wiki, $name_wiki, $description_wiki, $category){
+        $sql = DBconnection::connection()->prepare("UPDATE wikis SET name_wiki = :name_wiki , description_wiki = :description_wiki , category = :category WHERE id_wiki = :id_wiki");
+        $sql->bindParam(':id_wiki', $id_wiki);
+        $sql->bindParam(':name_wiki', $name_wiki);
+        $sql->bindParam(':description_wiki', $description_wiki);
+        $sql->bindParam(':category', $category);
+
+        $sql->execute();
+
     }
 }
